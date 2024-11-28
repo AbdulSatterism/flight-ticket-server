@@ -27,19 +27,8 @@ const loginUser = catchAsync(async (req, res) => {
   });
 });
 
-const logoutUser = catchAsync(async (req, res) => {
-  await UserServices.logoutUser(req);
-
-  sendResponse(res, {
-    statusCode: httpStatus.OK,
-    success: true,
-    message: 'User Logout successfully',
-    data: '',
-  });
-});
 
 export const UserController = {
   createUser,
   loginUser,
-  logoutUser,
 };
