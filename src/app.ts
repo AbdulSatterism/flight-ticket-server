@@ -12,7 +12,7 @@ app.use(cors());
 
 // application routes
 
-app.use('/api', router);
+app.use('/', router);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Welcome to flight ticket server');

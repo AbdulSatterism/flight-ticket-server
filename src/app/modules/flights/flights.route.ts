@@ -1,4 +1,3 @@
-
 import express from 'express';
 import validateRequest from '../../middleware/validateRequest';
 import { flightValidations } from './flights.validation';
@@ -9,41 +8,31 @@ import { USER_ROLE } from '../user/user.constant';
 const router = express.Router();
 
 router.post(
-  '/flights',auth(USER_ROLE.Admin),
+  '/flights',
+  auth(USER_ROLE.Admin),
   validateRequest(flightValidations.createFlightValidationSchema),
-  flightController.createFlight
+  flightController.createFlight,
 );
 
 // get available flights
-router.get(
-  '/flights',
-  flightController.getAllAvailableFlight
-);
+router.get('/flights', flightController.getAllAvailableFlight);
 // get flights for searching method
 
-router.get(
-  '/flights/search',
-  flightController.getFlightsBySearch
-);
+router.get('/flights/search', flightController.getFlightsBySearch);
 // get flight by id
-router.get(
-  '/flights/:id',
-  flightController.getSingleFlight
-);
+router.get('/flights/:id', flightController.getSingleFlight);
 
 router.put(
-  '/flights/:id',auth(USER_ROLE.Admin),
+  '/flights/:id',
+  auth(USER_ROLE.Admin),
   validateRequest(flightValidations.updateFlightValidationSchema),
-  flightController.flightUpdate
+  flightController.flightUpdate,
 );
 
 router.delete(
-  '/flights/:id',auth(USER_ROLE.Admin),
-  flightController.flightDelete
+  '/flights/:id',
+  auth(USER_ROLE.Admin),
+  flightController.flightDelete,
 );
-
-
-
-
 
 export const flightRoutes = router;

@@ -13,6 +13,4 @@ router.post(
 
 router.post('/login', UserController.loginUser);
 
-
-
 export const UserRoutes = router;

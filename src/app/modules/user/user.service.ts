@@ -84,5 +84,5 @@ const loginUser = async (payload: TLogin) => {
 
 export const UserServices = {
   createUserIntoDB,
-  loginUser
+  loginUser,
 };
